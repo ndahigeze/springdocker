@@ -1,12 +1,13 @@
 package com.example.docker.demo;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.http.MediaType;
 import org.springframework.test.web.servlet.MockMvc;
-import sun.plugin2.util.PojoUtil;
+
 
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.*;
 import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.*;
@@ -42,7 +43,9 @@ public class WebLayerTest {
         Employee emp=new Employee();
         emp.setName("name");
         emp.setSid("sid");
-        this.mockMvc.perform(post("/test").contentType(MediaType.APPLICATION_JSON).content(PojoUtil.toJson(emp)).accept(MediaType.APPLICATION_JSON)).andDo(print()).andExpect(status().isOk())
+        ObjectMapper test=new ObjectMapper();
+        test.writeValueAsString(emp);
+        this.mockMvc.perform(post("/test").contentType(MediaType.APPLICATION_JSON).content(test.writeValueAsString(emp)).accept(MediaType.APPLICATION_JSON)).andDo(print()).andExpect(status().isOk())
                 .andExpect(content().contentType(MediaType.APPLICATION_JSON));
     }
 }
