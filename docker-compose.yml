@@ -1,0 +1,39 @@
+version: '3'
+#networks:
+#  docker_learn:
+#    driver: bridge
+services:
+  docker-mysql:
+    restart: always
+    container_name: some-mysql
+    image: mysql
+#    networks:
+#      - docker_learn
+    environment:
+      MYSQL_ROOT_PASSWORD: password
+      MYSQL_DATABASE: dockerlearn
+      MYSQL_USER: lievre
+      MYSQL_PASSWORD: password
+
+    ports:
+      - "3306:3306"
+
+  web:
+    container_name: springdocker
+    restart: on-failure
+#    image: springdocker
+#    networks:
+#      - docker_learn
+#    Building image if does not already exist
+    build:
+      context: ./
+      dockerfile: Dockerfile
+
+    expose:
+      - "8081"
+    ports:
+      - 8081:8081
+    volumes:
+      - /data/springboot-docker-compose-app
+    depends_on:
+      - docker-mysql
