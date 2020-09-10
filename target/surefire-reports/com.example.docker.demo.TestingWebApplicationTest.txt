@@ -1,4 +1,4 @@
 -------------------------------------------------------------------------------
 Test set: com.example.docker.demo.TestingWebApplicationTest
 -------------------------------------------------------------------------------
-Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 1.982 s - in com.example.docker.demo.TestingWebApplicationTest
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 2.477 s - in com.example.docker.demo.TestingWebApplicationTest
