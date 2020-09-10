@@ -31,4 +31,12 @@ public class HomeController {
         map.put("test",dao.findAll());
         return new ResponseEntity<Object>(map,HttpStatus.OK);
     }
+
+    @RequestMapping(method = RequestMethod.GET,value = "all")
+    public ResponseEntity<Object>  viewAll(HttpServletRequest request){
+        return new ResponseEntity<Object>(dao.findAll(),HttpStatus.OK);
+    }
+
+
+
 }
