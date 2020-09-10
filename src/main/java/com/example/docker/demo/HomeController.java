@@ -36,7 +36,7 @@ public class HomeController {
     public ResponseEntity<Object>  viewAll(HttpServletRequest request){
         Map<String,Object> map=new HashMap<>();
         map.put("data",dao.findAll());
-        map.put("data","test");
+        map.put("data2","test");
         return new ResponseEntity<Object>(map,HttpStatus.OK);
     }
 
