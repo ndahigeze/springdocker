@@ -33,8 +33,8 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
 
-        run: mvn -B verify org.sonarsource.scanner.maven:sonar-maven-plugin:sonar
+        run: mvn -B verify -DskipTests org.sonarsource.scanner.maven:sonar-maven-plugin:sonar
 
       #    - name: Build with Maven
 
-#      run: mvn clean install -DskipTests
+#      run: mvn clean install
