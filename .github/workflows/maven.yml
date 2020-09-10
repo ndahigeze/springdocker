@@ -30,11 +30,12 @@ jobs:
         key: ${{ runner.os }}-sonar
         restore-keys: ${{ runner.os }}-sonar
     - name: Build and analyze
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+      
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
 
-        run: mvn -B clean -DskipTests verify org.sonarsource.scanner.maven:sonar-maven-plugin:sonar
+      run: mvn -B clean -DskipTests verify org.sonarsource.scanner.maven:sonar-maven-plugin:sonar
 
       #    - name: Build with Maven
 
