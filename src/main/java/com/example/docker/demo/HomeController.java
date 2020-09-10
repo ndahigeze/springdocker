@@ -34,7 +34,10 @@ public class HomeController {
 
     @RequestMapping(method = RequestMethod.GET,value = "all")
     public ResponseEntity<Object>  viewAll(HttpServletRequest request){
-        return new ResponseEntity<Object>(dao.findAll(),HttpStatus.OK);
+        Map<String,Object> map=new HashMap<>();
+        map.put("data",dao.findAll());
+        map.put("data","test");
+        return new ResponseEntity<Object>(map,HttpStatus.OK);
     }
 
 
