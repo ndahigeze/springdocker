@@ -1,0 +1,4 @@
+com\example\docker\demo\DemoApplicationTests.class
+com\example\docker\demo\WebLayerTest.class
+com\example\docker\demo\TestingWebApplicationTest.class
+com\example\docker\demo\HttpRequestTest.class
