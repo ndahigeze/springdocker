@@ -8,13 +8,6 @@ pipeline {
        }
       }
     }
-    stage ('Testing Stage'){
-      steps {
-       withMaven(maven: 'mvn_3_6_3'){
-         bat "mvn test"
-       }
-     }
-    }
 
   }
 }
