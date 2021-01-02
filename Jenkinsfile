@@ -4,12 +4,12 @@ pipeline {
   stages {
     stage('Build') {
       steps{
-         bat "./mvnw clean compile"
+         sh "./mvnw clean compile"
       }
     }
     stage ('Test'){
       steps{
-         bat "mvn test"
+         sh "mvn test"
      }
     }
 
