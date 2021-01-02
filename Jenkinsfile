@@ -1,18 +1,17 @@
 pipeline {
   agent any
+  triggers {
+      pollSCM '*****'
+  }
   stages {
-    stage('build') {
-      steps {
-       withMaven(maven: 'mvn_3_6_3'){
+    stage('Build') {
+      steps{
          bat "./mvnw clean compile"
-       }
       }
     }
-    stage ('Testing Stage'){
-      steps {
-       withMaven(maven: 'mvn_3_6_3'){
+    stage ('Test'){
+      steps{
          bat "mvn test"
-       }
      }
     }
 
